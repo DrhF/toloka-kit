@@ -116,17 +116,3 @@ def register_to_clearml(
 
     logging.info('Dataset registered in ClearML.')
 
-
-dataset = Dataset.create(
-    dataset_project="TolokaTmpIntegration", dataset_name="TestingDataset"
-)
-
-answers_df = # dataframe with answers
-
-register_to_clearml(dataset_project='TolokaTmpIntegration', dataset_name='TestingDataset',
-                    toloka_df=answers_df, toloka_dataset_path='temp.csv', verbose=True)
-
-register_to_clearml(parent_dataset_id=parent_dataset_id, toloka_df=answers_df, 
-                    toloka_dataset_path='temp.csv', verbose=True)
-
-# print(get_clearml_dataset(dataset_id='3c7b79d3d3114d39a01c5dbe7d208155'))

@@ -17,3 +17,10 @@ try:
     __all__.append('autoquality')
 except ImportError:
     pass
+
+
+try:
+    from .integrations import clearml  # noqa: F401
+    __all__.append('clearml')
+except ImportError:
+    pass

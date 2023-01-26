@@ -26,7 +26,7 @@ EXTRAS_REQUIRE = {
     'jupyter-metrics': ['plotly', 'ipyplot', 'jupyter-dash'],
     'clearml': ['clearml', 'pandas']
 }
-EXTRAS_REQUIRE['all'] = sum((deps for env, deps in EXTRAS_REQUIRE.items() if env != 'dev'), [])
+EXTRAS_REQUIRE['all'] = sum((deps for env, deps in EXTRAS_REQUIRE.items() if env not in ('dev', 'clearml')), [])
 
 setup(
     name=about['__title__'],

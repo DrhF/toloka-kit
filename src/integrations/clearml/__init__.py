@@ -108,9 +108,9 @@ def register_to_clearml(
     if external_url_columns is not None:
         for column_name in toloka_df.columns:
             if column_name in external_url_columns:
-                sample_value = toloka_df[column_name].iloc[0]
-                if isinstance(sample_value, str) and re.match(url_regex, sample_value) is not None:
-                    dataset.add_external_files(source_url=toloka_df[column_name].dropna().tolist(), recursive=False, verbose=verbose)
+                external_urls = toloka_df[column_name].dropna().str.match(url_regex).tolist()
+                if len(external_urls):
+                    dataset.add_external_files(source_url=external_urls, recursive=False, verbose=verbose)
 
     dataset.upload(verbose=verbose)
     dataset.finalize(verbose=verbose)

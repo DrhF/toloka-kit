@@ -24,8 +24,9 @@ EXTRAS_REQUIRE = {
     's3': ['boto3 >= 1.4.7'],
     'zookeeper': ['kazoo >= 2.6.1'],
     'jupyter-metrics': ['plotly', 'ipyplot', 'jupyter-dash'],
+    'clearml': ['clearml', 'pandas']
 }
-EXTRAS_REQUIRE['all'] = sum((deps for env, deps in EXTRAS_REQUIRE.items() if env != 'dev'), [])
+EXTRAS_REQUIRE['all'] = sum((deps for env, deps in EXTRAS_REQUIRE.items() if env not in ('dev', 'clearml')), [])
 
 setup(
     name=about['__title__'],

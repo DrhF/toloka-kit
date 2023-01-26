@@ -115,4 +115,4 @@ def register_to_clearml(
     dataset.upload(verbose=verbose)
     dataset.finalize(verbose=verbose)
 
-    logging.info(f'Dataset registered in ClearML.Dataset ID is:{dataset.id}')
+    logging.info(f'Dataset registered in ClearML. Dataset ID is: {dataset.id}')
